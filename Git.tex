@@ -1,87 +1,47 @@
-새로운 깃 저장소 초기 설정: Git init
-모든 코드 내용은 저장소 안에 추적됩니다. 깃 저장소를 초기 설정하려면 해당 프로젝트 폴더 안에 이 명령어를 사용하세요. 이것이 .git 폴더를 만들어 줄 것입니다.
 
-git init
+Git 초기 설정
+  - git config --global user.name "이름"
+  - git config --global user.email "GitHub 등록 이메일"
+  - git remote add origin "주소(GitHub 등록 경로)"
+    * 경로는 HTTPS와 SSH 등으로 설정 가능함
 
-Git add
-이 명령어는 하나 또는 모든 변경 파일들을 본 무대 영역으로 더합니다.
+Git 환경 구축(Local)
+  - git init 
+    * .git 폴더를 생성하고 해당 폴더를 관리할 수 있도록 초기화 한다.
+  - git add .
+  - git commit -m "수정내용"
 
-어떤 하나의 특정 파일을 올리기 위해서는:
+GitHub 업로드
+  - git push origin main
 
-git add filename
+GitHub 다운로드
+  - git pull origin main
 
-신규 또는 수정되거나 삭제된 파일들을 올리기 위해서는:
+Git 상태 확인 명령어
+  - git status
+    * 스테이지에 등록/미등록 현황 및 GitHub 업데이트 상태를 볼 수 있다.
+  - git remote -v 
+    * GitHub와 연결 정보를 볼 수 있다.
+  - git log
+    * 현재 브랜치에서 모든 버전 이력을 보여준다.
+  - git log filename
+    * 지정된 파일의 버전 이력을 보여준다.
 
-git add -A
-
-신규 또는 수정 파일들을 올리기 위해서는:
-
-git add .
-
-수정 또는 삭제된 파일들을 올리기 위해서는:
-
-git add -u
-
-Git commit
-이 명령어는 버전 이력을 파일 안에 기록합니다. -m이 뜻하는 것은 어떤 커밋 메세지가 뒤따른다는 의미입니다. 이 메세지는 커스텀이며 반드시 이것을 동료에게 알리는 용도로 또는 미래의 스스로에게 무엇이 해당 커밋 안에 더해졌는지 알리기 위해 사용해야 합니다.
-
-git commit -m "your text"
-
-Git status
-이 명령어는 파일들을 초록색과 빨간색으로 리스트해 줄 것입니다. 초록색 파일들은 무대로 올려졌지만 아직 커밋되지 않은 것들입니다. 빨간색으로 표시된 파일들은 무대로 아직 올려지지 않은 것들입니다.
-
-git status
-
-Git branch branch_name
-이것은 새 브랜치를 생성합니다:
-
-git branch branch_name
-
-Git checkout branch_name
-어떤 브랜치에서 다른 브랜치로 변경하려면:
-
-git checkout branch_name
-
-Git checkout -b branch_name
-새로운 브랜치를 생성하고 그것으로 자동 전환하려면:
-
-git checkout -b branch_name
-
-이것은 간략하게:
-git branch branch_name
-git checkout branch_name
-
-
-Git branch
-모든 브랜치를 리스트하고 현재 어떤 브랜치에 있는지 확인하려면:
-
-git branch
-
-Git log
-이 명령어는 현재 브랜치에서 모든 버전 이력을 리스트해줄 것입니다:
-
-git log
-
-Push와 Pull
-Git push
-이 명령어는 커밋된 변경점들을 원격 저장소에 보냅니다:
-
-git push
-
-Git pull
-원격 저장소에서 개인 컴퓨터로 변경점들을 가져오려면:
-
-git pull
-
-
-
-
+Branch 관리
+  - git branch branch_name
+    * 새 브랜치를 생성합니다:
+  - git checkout branch_name
+    * 현재 브랜치를 닫고 다른 브랜치로 변경한다.
+  - git checkout -b branch_name
+    * 새로운 브랜치를 생성하고 자동으로 전환해 준다.
+  - git branch
+    * 모든 브랜치의 목록을 보여준다.
 
 에러 조치
 
-fatal: unable to access 'https://github.com/HyunyunLee/MyDocs.git/': SSL certificate problem: self signed certificate in certificate chain
-
-SSL 보안서버 인증서를 구매하여 사용하지 않고, Open SSL 인증서를 사용한 경우 git push시 SSL에러가 발생한다.
-이를 해결하기 위해 CA에서 인증하는 절차를 무시하는 방법이 있다.
-
-git config --global http.sslVerify false
+- 에러내용 
+   fatal: unable to access 'https://github.com/HyunyunLee/MyDocs.git/': SSL certificate problem: self signed certificate in certificate chain
+- 조치방법
+   SSL 보안서버 인증서를 구매하여 사용하지 않고, Open SSL 인증서를 사용한 경우 git push시 SSL에러가 발생한다.
+   이를 해결하기 위해 CA에서 인증하는 절차를 무시하는 방법이 있다.
+   git config --global http.sslVerify false
