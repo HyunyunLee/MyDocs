@@ -23,6 +23,8 @@ GitHub 업로드
     * upload 및 merge를 동시에 수행해준다.
   - git push --all
     * 모든 branch를 모두 업로드 해준다.
+  - git push -f origin branch_name
+    * 해당 브랜치를 강제로 푸쉬한다.
     
 GitHub 다운로드
   - git pull origin main
@@ -107,11 +109,46 @@ branch 작업 완료 후 병합하기(rebase 명령을 사용해도 됨)
   - git commit -m "내용"
   - git push origin main
 
+branch 머지 완료 후 제거(협업시)
+  - git branch --delete origin branch_name
+    * 관리자에게 보여지는 작업용 브랜치를 삭제할때 사용한다.(팀원 git에는 남아 있음)
+
 태그 달기
   - git tag (프로그램명+버전)*
     * 버전 옆에 태그를 붙여준다.
   - git push --tags origin main 
     * 만들어진 태그까지 업로드한다.
+
+
+[ 규모 협업시 ]
+<팀장>
+1. main 브랜치 초기 설정
+2. dev 브랜치 생성
+3. main, dev 브랜치 보호
+4. 프로젝트 참여 인원 등록
+5. 팀원 작업 완료후 pr 접수시 검토 및 marge
+6. 최종 작업 완료 후 main 브랜치로 병합
+
+<팀원>
+1. topic 브랜치 생성
+    - git checkout -b login_topic
+2. 개발 진행 및 완료
+    <코드 수정 진행>
+    - git add .
+    - git commit -m "로그"
+3. 로그 정리(rebase)
+    - git rebae -i HEAD~2
+4. topic 브랜치 push
+    - git push orgin login_topic
+      * 상황에 따라 -f(강제올리기) 옵션 붙일것
+5. pr 요청
+    - GitHub에서 수행
+6. pr 승인 및 marge(팀장)
+    - GitHub에서 수행
+7. marge 완료 후 원격 branch 삭제
+    - git push --delete origin login_topic
+8. 작업 완료된 dev branch 동기화(pull)
+    - git pull origin dev
 
 에러 조치
 
