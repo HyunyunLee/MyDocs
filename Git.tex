@@ -4,6 +4,13 @@ Git 초기 설정
   - git config --global user.email "GitHub 등록 이메일"
   - git remote add origin "주소(GitHub 등록 경로)"
     * 경로는 HTTPS와 SSH 등으로 설정 가능함
+    [remote관리]
+    - git remote rm origin
+      * 등록된 origin을 삭제한다.
+    - git remote -v 
+      * GitHub와 연결 정보를 볼 수 있다.
+    - git ls-remote
+      * GitHub와 연결 정보를 볼 수 있다.
 
 Git 환경 구축(Local)
   - git init 
@@ -13,19 +20,21 @@ Git 환경 구축(Local)
 
 GitHub 업로드
   - git push origin main
+    * upload 및 merge를 동시에 수행해준다.
 
 GitHub 다운로드
   - git pull origin main
+    * fetch 및 merge를 동시에 수행해준다.
 
 Git 상태 확인 명령어
   - git status
     * 스테이지에 등록/미등록 현황 및 GitHub 업데이트 상태를 볼 수 있다.
-  - git remote -v 
-    * GitHub와 연결 정보를 볼 수 있다.
   - git log
     * 현재 브랜치에서 모든 버전 이력을 보여준다.
   - git log filename
     * 지정된 파일의 버전 이력을 보여준다.
+  - git commit --amend -m "커밋 메시지"
+    * 최종 커밋 로그 변경
 
 Reset(해쉬값은 git log 명령을 통해 확인한다.)
   - Soft: 헤더만 제거한다.(commit 전 상태로 돌린다.)
@@ -64,8 +73,36 @@ Merge
 Rebase : 코드를 재정리 하는것
   - git rebase -i HEAD~3
 
-최종 커밋 로그 변경
-  - git commit --amend -m "커밋 메시지"
+Clone
+  - git clone "주소(GitHub 등록 경로)"
+    * 빈 디렉토리에서 실행하면 git init, git remote ~, pit pull을 한 번에 수행해준다.
+    * fetch origin도 수행해준다.
+    * 초기 세팅시 편리함
+
+branch를 만들었을때 다운로드 방법
+  <방법1>
+  - git checkout -b (branch 이름)
+    * 브랜치를 만들고 브렌치로 이동한다.
+  - git fetch origin
+    * origin에 있는 모든 내용을 받는다.(머지는 하지 않음)
+  - git merge origin/(branch 이름)
+    * 원하는 branch를 병합한다.
+  <방법2>
+  - git checkout -b (branch 이름)
+    * 브랜치를 만들고 브렌치로 이동한다.(브랜치 생성)
+  - git pull origin (branch 이름)(브렌치 다운로드 및 머지)
+    * 브랜치를 다운로드한다.
+  <방법3> <== 자주 사용함
+  - git fetch origin
+    * branch를 다운받는다.(모든 브랜치 다운로드)
+  - git checkout -b (branch 이름) origin/(branch 이름)
+    * 브렌치를 만들고 병합까지 수행해준다.(브랜치 생성 및 머지)
+
+branch 작업 완료 후 병합하기(rebase 명령을 사용해도 됨)
+  - git merge --squash (branch 이름)
+    * main 브렌치에서 실행, commit이 안된 상태로 병합됨
+  - git commit -m "내용"
+  - git push origin main
 
 에러 조치
 
