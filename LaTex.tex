@@ -1,10 +1,35 @@
 %\documentclass{article}
-\documentclass{oblivoir}
+\documentclass[12pt,a4paper,twoside, footnote]{oblivoir}
 %\usepackage{graphicx}
 %\usepackage{kotex}
+\usepackage{fapapersize}
+\usefastocksize{210mm,297mm} % 공급 용지 크기
+\usefapapersize{*,*,25mm,*,23mm,28mm} % 용지싸이즈 2개, 좌, 우, 상, 하
+
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+
 \title{LaTex 사용방법}
 \author{홍길동}
 \date{2023년}
+
+\SetHangulspace{1.3}{1.1}  % 행간 조절(이해 못했음)
+\ResetHangulspace{1.3}{1.1}
+
+\makepagestyle{myheading}
+\makeevenfoot{myheading}{\thepage / \thetotalpages}{}{}
+\makeoddfoot{myheading}{}{}{\thepage}
+\makeevenhead{myheading}{2023-1\quad 전자회로해석 II}{}{95112222 홍길동}
+\makeoddhead{myheading}{2000000 홍길동}{}{1차 스터디그룹 발표}
+\pagestyle{myheading}
 
 \begin{document}
 \maketitle
@@ -19,6 +44,13 @@ $\sqrt[3]{2}$
 `apple'
 ``banana''
 
+\begin{theorem}
+    AA
+\end{theorem}
+
+\begin{definition}
+    AA
+\end{definition}
 
 \section[목차에 표시되는 내용입니다.]{첫 번째 절}
 첫번째 절입니다.
@@ -54,9 +86,40 @@ $\sqrt[3]{2}$
 
 \Huge Huge : 10포인트 기준 20.74포인트
 
+\begin{Large}
+이곳은 지역적으로
+글자 크기를 설정했습니다.
 
+\begin{flushleft}
+\textrm{안녕하세요 Hello World!!}
 
+\textsf{안녕하세요\\ Hello World!!}
+
+\texttt{안녕하세요 Hello World!!}
+\end{flushleft}
+
+\begin{flushright}
+
+\textmd{안녕하세요 Hello World!!}
+
+\textbf{안녕하세요\\ Hello World!!}
+
+\textup{안녕하세요 Hello World!!}
+
+\end{flushright}
+
+\begin{center}
+
+\textit{안녕하세요\footnote{한국식 인사 표현입니다.} Hello World!!}
+
+\textsl{안녕하세요\\ Hello World!!}
+
+\textsc{안녕하세요 Hello World!!}
+
+\emph{안녕하세요 Hello World!!}
+
+\textnormal{안녕하세요 Hello World!!}
+\end{center}
+\end{Large}
 \end{center}
 \end{document}
-
-% 2강 9분 15초 부터
