@@ -1,4 +1,4 @@
-\documentclass[12pt,a4paper,twoside, footnote]{oblivoir}
+\documentclass[12pt,a4paper]{oblivoir}
 
 \usepackage{fapapersize}
 \usefastocksize{210mm,297mm} % 공급 용지 크기
@@ -22,172 +22,189 @@
 \maketitle
 
 \section[Git 초기 설정]{Git 초기 설정}
-- git config --global user.name "이름"
+\begin{itemize}
+\item git config --global user.name ``이름''
+\item git config --global user.email ``GitHub 등록 이메일''
+\item git remote add origin ``주소(GitHub 등록 경로)'' \\  ☞ 경로는 HTTPS와 SSH 등으로 설정 가능함
+\end{itemize}
 
-- git config --global user.email "GitHub 등록 이메일"
-
-- git remote add origin "주소(GitHub 등록 경로)"
-
-* 경로는 HTTPS와 SSH 등으로 설정 가능함
 
 [ remote관리 ]
-
-- git remote rm origin
-
- * 등록된 origin을 삭제한다.
-- git remote -v 
- * GitHub와 연결 정보를 볼 수 있다.
-    
-- git ls-remote
- * GitHub와 연결 정보를 볼 수 있다.
+\begin{itemize}
+\item git remote rm origin \\  ☞ 등록된 origin을 삭제한다.
+\item git remote -v \\  ☞ GitHub와 연결 정보를 볼 수 있다.
+\item git ls-remote \\  ☞ GitHub와 연결 정보를 볼 수 있다.
+\end{itemize}
  
 \section[Git 환경 구축(local)]{Git 환경 구축(local)}
-  - git init 
-    * .git 폴더를 생성하고 해당 폴더를 관리할 수 있도록 초기화 한다.
-  - git add .
-  - git commit -m "수정내용"
+\begin{itemize}
+\item git init  \\  ☞ .git 폴더를 생성하고 해당 폴더를 관리할 수 있도록 초기화 한다.
+\item git add .
+\item git commit -m ``수정내용''
+\end{itemize}
 
 \section[GitHub 업로드]{GitHub 업로드}
-  - git push origin main
-    * upload 및 merge를 동시에 수행해준다.
-  - git push --all
-    * 모든 branch를 모두 업로드 해준다.
-  - git push -f origin branch_name
-    * 해당 브랜치를 강제로 푸쉬한다.
+\begin{itemize}
+\item git push origin main \\  ☞ upload 및 merge를 동시에 수행해준다.
+\item git push --all \\  ☞ 모든 branch를 모두 업로드 해준다.
+\item git push -f origin branch\_name \\  ☞ 해당 브랜치를 강제로 푸쉬한다.
+\end{itemize}
 
 \section[GitHub 다운로드]{GitHub 다운로드}
-  - git pull origin main
-    * fetch 및 merge를 동시에 수행해준다.
+\begin{itemize}
+\item git pull origin main \\  ☞ fetch 및 merge를 동시에 수행해준다.
+\end{itemize}
 
 \section[Git 상태 확인 명령어]{Git 상태 확인 명령어}
-  - git status
-    * 스테이지에 등록/미등록 현황 및 GitHub 업데이트 상태를 볼 수 있다.
-  - git log
-    * 현재 브랜치에서 모든 버전 이력을 보여준다.
-  - git log filename
-    * 지정된 파일의 버전 이력을 보여준다.
-  - git commit --amend -m "커밋 메시지"
-    * 최종 커밋 로그 변경
+\begin{itemize}
+\item git status \\  ☞ 스테이지에 등록/미등록 현황 및 GitHub 업데이트 상태를 볼 수 있다.
+\item git log \\  ☞ 현재 브랜치에서 모든 버전 이력을 보여준다.
+\item git log filename \\  ☞ 지정된 파일의 버전 이력을 보여준다.
+\item git commit --amend -m ``커밋 메시지'' \\  ☞ 최종 커밋 로그 변경
+\end{itemize}
 
 \section[Git Reset]{Git Reset}
-  (해쉬값은 git log 명령을 통해 확인한다.)
-  - Soft: 헤더만 제거한다.(commit 전 상태로 돌린다.)
-    -> 커밋 로그 변경시 사용
-    git reset --soft (이전 버전의 해쉬값(앞에 5자리 정도 입력))
-  - Mixed: 스테이지, 헤더를 제거한다.(add 전 상태로 되돌린다.)   <== 활용 빈도 낮음
-    -> 작업 영역의 파일 내용을 변경할때 사용(파일 내용 수정하고 싶을때)
-    git reset --mixed (이전 버전의 해쉬값(앞에 5자리 정도 입력))
-  - Hard: 파일, 스테이지, 헤더 모두 제거한다.(초기 상태로 되돌린다.)
-    -> 이전 버전으로 돌아갈때 사용
-    git reset --hard (이전 버전의 해쉬값(앞에 5자리 정도 입력))
-    참고, 작업 영역의 파일 까지도 삭제된다.
+\subsection{Soft : 헤더만 제거한다.(commit 전 상태로 돌린다.)}  
+\begin{itemize}
+\item git reset --soft (이전 버전의 해쉬값(앞에 5자리 정도 입력)) \\  ☞ 커밋 로그 변경시 사용
+\end{itemize}
+
+\subsection{Mixed : 스테이지, 헤더를 제거한다.(add 전 상태로 되돌린다.)   ← 활용 빈도 낮음}
+\begin{itemize}
+\item git reset --mixed (이전 버전의 해쉬값(앞에 5자리 정도 입력)) \\  ☞ 작업 영역의 파일 내용을 변경할때 사용(파일 내용 수정하고 싶을때)
+\end{itemize}
+\subsection{Hard : 파일, 스테이지, 헤더 모두 제거한다.(초기 상태로 되돌린다.)}
+\begin{itemize}
+\item git reset --hard (이전 버전의 해쉬값(앞에 5자리 정도 입력)) \\  ☞ 작업 영역의 파일 까지도 삭제된다.(이전 버전으로 돌아갈때 사용)
+\end{itemize}
 
 \section[Git Reflog]{Git Reflog}
-  - git reflog
-    -> 모든 커밋 로그를 보여준다.
-    -> 목록에서 되돌리고 싶은 버전의 해쉬값을 찾아 아래와 같이 입력하면 복구된다.
-       git reset --hard 해쉬값
+\begin{itemize}
+\item - git reflog \\ ☞ 모든 커밋 로그를 보여준다. \\  ☞ 목록에서 되돌리고 싶은 버전의 해쉬값을 찾아 아래와 같이 입력하면 복구된다. \\  ☞ git reset --hard 해쉬값
+\end{itemize}
 
 \section[Branch 관리]{Branch 관리}
-fast-forward merge : main노드에 생성된 노드가 없을 경우 병합하는 방법으로 branch의 마지막 노드를 main 노드에 병합한다.
-3way merge : 분기점 기준으로 기준 노드와 main의 첫번째 노드, branch의 첫번째 노드를 병합한다.
-  - git branch branch_name
-    * 새 브랜치를 생성합니다:
-  - git checkout branch_name
-    * 현재 브랜치를 닫고 다른 브랜치로 변경한다.
-  - git checkout -b branch_name
-    * 새로운 브랜치를 생성하고 자동으로 전환해 준다.
-  - git branch
-    * 모든 브랜치의 목록을 보여준다.
+\hbox{
+fast-forward merge : main노드에 생성된 노드가 없을 경우 병합하는 방법으로 branch의 마지막 노드를 main 노드에 병합한다.\\ 
+3way merge : 분기점 기준으로 기준 노드와 main의 첫번째 노드, branch의 첫번째 노드를 병합한다.\\
+}
+
+\begin{itemize}
+\item git branch branch\_name \\  ☞ 새 브랜치를 생성합니다.
+\item git checkout branch\_name \\  ☞ 현재 브랜치를 닫고 다른 브랜치로 변경한다.
+\item git checkout -b branch\_name \\  ☞ 새로운 브랜치를 생성하고 자동으로 전환해 준다.
+\item git branch \\  ☞ 모든 브랜치의 목록을 보여준다.
+\end{itemize}
 
 \section[Merge]{Merge}
-  - git merge sub-branch
-    -> sub-branch 내용을 main에 병합한다.
-    * --no-ff 옵션 : fast-forward Merge 경우 커밋을 남기도록 설정한다.
+\begin{itemize}
+\item git merge sub-branch \\  ☞ sub-branch 내용을 main에 병합한다. \\  ☞ --no-ff 옵션 : fast-forward Merge 경우 커밋을 남기도록 설정한다.
+\end{itemize}
 
 \section[Rebase]{Rebase}
-Rebase : 코드를 재정리 하는것
-  - git rebase -i HEAD~3
+\begin{itemize}
+\item git rebase -i HEAD-3 \\  ☞ Rebase : 코드를 재정리 하는것
+\end{itemize}
 
 \section[Clone]{Clone}
-  - git clone "주소(GitHub 등록 경로)"
-    * 빈 디렉토리에서 실행하면 git init, git remote ~, pit pull을 한 번에 수행해준다.
-    * fetch origin도 수행해준다.
-    * 초기 세팅시 편리함
+\begin{itemize}
+\item git clone ``주소(GitHub 등록 경로)'' \\  ☞ 빈 디렉토리에서 실행하면 git init, git remote -, pit pull을 한 번에 수행해준다. \\  ☞ fetch origin도 수행해준다. \\  ☞ 초기 세팅시 편리함
+\end{itemize}
 
 \section[branch를 만들었을때 다운로드 방법]{branch를 만들었을때 다운로드 방법}
 \subsection{방법1}
-  - git checkout -b (branch 이름)
-    * 브랜치를 만들고 브렌치로 이동한다.
-  - git fetch origin
-    * origin에 있는 모든 내용을 받는다.(머지는 하지 않음)
-  - git merge origin/(branch 이름)
-    * 원하는 branch를 병합한다.
+\begin{itemize}
+\item git checkout -b (branch 이름) \\  ☞ 브랜치를 만들고 브렌치로 이동한다.
+\item git fetch origin \\  ☞ origin에 있는 모든 내용을 받는다.(머지는 하지 않음)
+\item git merge origin/(branch 이름) \\  ☞ 원하는 branch를 병합한다.
+\end{itemize}
 \subsection{방법2}
-  - git checkout -b (branch 이름)
-    * 브랜치를 만들고 브렌치로 이동한다.(브랜치 생성)
-  - git pull origin (branch 이름)(브렌치 다운로드 및 머지)
-    * 브랜치를 다운로드한다.
-\subsection{방법3}
-  자주 사용함
-  - git fetch origin
-    * branch를 다운받는다.(모든 브랜치 다운로드)
-  - git checkout -b (branch 이름) origin/(branch 이름)
-    * 브렌치를 만들고 병합까지 수행해준다.(브랜치 생성 및 머지)
-
+\begin{itemize}
+  \item git checkout -b (branch 이름) \\  ☞ 브랜치를 만들고 브렌치로 이동한다.(브랜치 생성)
+\item git pull origin (branch 이름)(브렌치 다운로드 및 머지) \\  ☞ 브랜치를 다운로드한다.
+\end{itemize}
+\subsection{방법3 - 자주 사용됨}
+\begin{itemize}
+\item git fetch origin \\  ☞ branch를 다운받는다.(모든 브랜치 다운로드)
+\item git checkout -b (branch 이름) origin/(branch 이름) \\  ☞ 브렌치를 만들고 병합까지 수행해준다.(브랜치 생성 및 머지)
+\end{itemize}
 \section[branch 작업 완료 후 병합하기]{branch 작업 완료 후 병합하기}
-  branch 작업 완료 후 병합하기(rebase 명령을 사용해도 됨)
-  - git merge --squash (branch 이름)
-    * main 브렌치에서 실행, commit이 안된 상태로 병합됨
-  - git commit -m "내용"
-  - git push origin main
+branch 작업 완료 후 병합하기(rebase 명령을 사용해도 됨)
+\begin{itemize}
+\item git merge --squash (branch 이름) \\  ☞ main 브렌치에서 실행, commit이 안된 상태로 병합됨
+\item git commit -m ``내용''
+\item git push origin main
+\end{itemize}
 
 \section[branch 머지 완료 후 제거(협업시)]{branch 머지 완료 후 제거(협업시)}
-  - git branch --delete origin branch_name
-    * 관리자에게 보여지는 작업용 브랜치를 삭제할때 사용한다.(팀원 git에는 남아 있음)
+\begin{itemize}
+\item git branch --delete origin branch\_name \\  ☞ 관리자에게 보여지는 작업용 브랜치를 삭제할때 사용한다.(팀원 git에는 남아 있음)
+\end{itemize}
 
 \section[태그 달기]{태그 달기}
-  - git tag (프로그램명+버전)*
-    * 버전 옆에 태그를 붙여준다.
-  - git push --tags origin main 
-    * 만들어진 태그까지 업로드한다.
-
+\begin{itemize}
+\item git tag (프로그램명+버전)☞ \\  ☞ 버전 옆에 태그를 붙여준다.
+\item git push --tags origin main  \\  ☞ 만들어진 태그까지 업로드한다.
+\end{itemize}
 
 \section[소규모 협업]{소규모 협업}
 \subsection{팀장}
-1. main 브랜치 초기 설정
-2. dev 브랜치 생성
-3. main, dev 브랜치 보호
-4. 프로젝트 참여 인원 등록
-5. 팀원 작업 완료후 pr 접수시 검토 및 marge
-6. 최종 작업 완료 후 main 브랜치로 병합
+\begin{enumerate}
+\item main 브랜치 초기 설정
+\item dev 브랜치 생성
+\item main, dev 브랜치 보호
+\item 프로젝트 참여 인원 등록
+\item 팀원 작업 완료후 pr 접수시 검토 및 marge
+\item 최종 작업 완료 후 main 브랜치로 병합
+\end{enumerate}
+
 \subsection{팀원}
-1. topic 브랜치 생성
-    - git checkout -b login_topic
-2. 개발 진행 및 완료
-    <코드 수정 진행>
-    - git add .
-    - git commit -m "로그"
-3. 로그 정리(rebase)
-    - git rebae -i HEAD~2
-4. topic 브랜치 push
-    - git push orgin login_topic
-      * 상황에 따라 -f(강제올리기) 옵션 붙일것
-5. pr 요청
-    - GitHub에서 수행
-6. pr 승인 및 marge(팀장)
-    - GitHub에서 수행
-7. marge 완료 후 원격 branch 삭제
-    - git push --delete origin login_topic
-8. 작업 완료된 dev branch 동기화(pull)
-    - git pull origin dev
+\begin{enumerate}
+\item topic 브랜치 생성 
+\begin{itemize}
+\item   git checkout -b login\_topic
+\end{itemize}
+\item 개발 진행 및 완료 \\ <코드 수정 진행>
+\begin{itemize}
+\item git add .
+\item git commit -m ``로그''
+\end{itemize}
+\item 로그 정리(rebase)
+\begin{itemize}
+\item   git rebae -i HEAD-2
+\end{itemize}
+\item topic 브랜치 push
+\begin{itemize}
+\item git push orgin login\_topic \\  ☞ 상황에 따라 -f(강제올리기) 옵션 붙일것
+\end{itemize}
+\item pr 요청
+\begin{itemize}
+\item GitHub에서 수행
+\end{itemize}
+\item pr 승인 및 marge(팀장)
+\begin{itemize}
+\item GitHub에서 수행
+\end{itemize}
+\item marge 완료 후 원격 branch 삭제
+\begin{itemize}
+\item git push --delete origin login\_topic
+\end{itemize}
+\item 작업 완료된 dev branch 동기화(pull)
+\begin{itemize}
+\item git pull origin dev
+\end{itemize}
+\end{enumerate}
 
 \section[에러 조치]{에러 조치}
-- 에러내용 
-   fatal: unable to access 'https://github.com/HyunyunLee/MyDocs.git/': SSL certificate problem: self signed certificate in certificate chain
-- 조치방법
-   SSL 보안서버 인증서를 구매하여 사용하지 않고, Open SSL 인증서를 사용한 경우 git push시 SSL에러가 발생한다.
-   이를 해결하기 위해 CA에서 인증하는 절차를 무시하는 방법이 있다.
-   git config --global http.sslVerify false
-\end{Large}
+\begin{itemize}
+  \item git push --delete origin login\_topic
+\end{itemize}
+  
+\begin{itemize}
+\item 에러내용 : fatal: unable to access `https://github.com/HyunyunLee/MyDocs.git/': SSL certificate problem: self signed certificate in certificate chain
+\item 조치방법 \\
+SSL 보안서버 인증서를 구매하여 사용하지 않고, Open SSL 인증서를 사용한 경우 git push시 SSL에러가 발생한다.
+이를 해결하기 위해 CA에서 인증하는 절차를 무시하는 방법이 있다.
+git config --global http.sslVerify false
+\end{itemize}
 \end{document}
