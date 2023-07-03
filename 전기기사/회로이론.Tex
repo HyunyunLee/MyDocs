@@ -1,0 +1,78 @@
+\documentclass[12pt,a4paper]{oblivoir}
+\usepackage{fapapersize}
+\usepackage{amsmath}
+\usepackage{tabularray}
+\usepackage{tikz}
+
+\tikzstyle{mybox} = [draw=black, fill=blue!5, very thick,
+rectangle, rounded corners, inner sep=10pt, inner ysep=20pt]
+\tikzstyle{fancytitle} =[fill=black, text=white]
+
+\usefastocksize{210mm,297mm} % 공급 용지 크기
+\usefapapersize{*,*,25mm,*,23mm,28mm} % 용지싸이즈 2개, 좌, 우, 상, 하
+
+\title{전기기사 - 회로이론}
+\author{이현연}
+\date{2023년}
+
+\begin{document}
+ \maketitle
+% ---------------------------------------------------------------------------------------------------
+\newpage    
+\section*{문제1}
+    \begin{tblr}{X[l]}
+        % 문제
+        $i=2t^2+8t$ [A]로 표시되는 전류가 도선에 3[s] 동안 흘렀을때 통과한 전기량은 몇 [C] 인가?\\
+        % 보기
+        \begin{tblr}{X[l] X[l] X[l] X[l]}
+            ① 18&② 48&③ 54&④ 61
+        \end{tblr} \\
+        % 풀이
+        \begin{tikzpicture}
+            \node [mybox] (box){
+                \begin{minipage}{1\textwidth}
+                    Q(전기량)은 단위 시간당 흐르는 전류의 합이므로 다음과 같은 식을 사용할 수 있다.
+                    \begin{align*}
+                        Q & =\int_0^t i(x)\cdot dt [C]
+                    \end{align*}
+                    따라서 식을 이용해 문제를 풀면 다음과 같이 풀이할 수 있다.
+                    \begin{align*}
+                        Q &=\int_0^3 (2t^2+8t)\cdot dt \\ 
+                        &=\left[ 2\cdot \frac{1}{3}t^3+8\cdot \frac{1}{2}t^2  \right]_0^3 \\ 
+                        &=\left[ \frac{2}{3}\cdot 3^3 + 4\cdot 3^2 \right] - \left[ 0 \right] \\
+                        &= 54
+                    \end{align*}
+                \end{minipage} };
+            \node[fancytitle, right=30pt] at (box.north west) {풀이};
+        \end{tikzpicture} \\
+        % 답
+        \begin{tblr}{X[r]}
+            답 : ③
+        \end{tblr}
+    \end{tblr}
+% ---------------------------------------------------------------------------------------------------
+\newpage    
+\section*{문제 X}
+    \begin{tblr}{X[l]} % 문제 / 보기 / 풀이 / 답을 포함하는 하나의 표를 생성한다.
+        % 문제 
+        여기에 문제를 입력하세요
+        % 보기 
+        \begin{tblr}{X[l] X[l] X[l] X[l]}
+            ①   &②   &③   &④   
+        \end{tblr} \\
+        % 풀이 박스
+        \begin{tikzpicture}
+            \node [mybox] (box){
+                \begin{minipage}{1\textwidth}
+                    여기에 풀이과정을 입력하세요
+                \end{minipage} };
+            \node[fancytitle, right=30pt] at (box.north west) {풀이};
+        \end{tikzpicture} \\ 
+        % 답
+        \begin{tblr}{X[r]}
+            여기에 답을 입력하세요
+        \end{tblr} \\
+    \end{tblr} % 문제 / 보기 / 풀이 / 답을 포함한 표를 닫는다.
+   
+%====================================================================================================
+\end{document}
