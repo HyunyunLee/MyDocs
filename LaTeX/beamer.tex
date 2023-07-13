@@ -45,26 +45,28 @@
             {\footnotesize [ 사용법 ]}
                 \begin{scriptsize}
                     \begin{verbatim}
-    \documentclass[12pt, aspectratio=169]{beamer}
+1. View > Command Palette 메뉴를 클릭하거나 F1을 누릅니다.
 
-    \usepackage{kotex}
-    \usepackage[utf8]{inputenc}
+2. Preferences: User Open Settings (JSON) 명령을 내립니다. ("open set"까지만 입력해도 이 명령이 나타납니다.)
 
-    \title{beamer document}
-    \author{Name}
-    \date{2023.7}
+3. JSON 파일에 아래 내용을 추가합니다.
+"latex-workshop.latex.recipes": [{
+            "name": "xelatex",
+            "tools": [
+                "xelatex"
+]}],
+"latex-workshop.latex.tools": [{
+            "name": "xelatex",
+            "command": "xelatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOC%"
+]}]
 
-    \begin{document}
-        \maketitle
-
-        \begin{frame}{목차}
-            \tableofcontents
-        \end{frame}
-
-        \begin{frame}{페이지 제목}
-            테스트 페이지!!!
-        \end{frame}
-    \end{document}
+4.>LaTeX Workshop: Build with recipe 메뉴를 실행하고 xelatex를 선택한다.
+5. 컴파일하면 실행됨
                     \end{verbatim}    
                 \end{scriptsize}    
             \column{0.65\textwidth}
@@ -138,3 +140,5 @@
     %         \column{0.5\textwidth} This is going to be my second column.This is going to be my second column.This is going to be my second column.This is going to be my second column.This is going to be my second column.This is going to be my second column.This is going to be my second column.This is going to be my second column.
     %     \end{columns}
     % \end{frame}
+
+
