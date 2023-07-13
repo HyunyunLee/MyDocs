@@ -1,0 +1,140 @@
+\documentclass[12pt, aspectratio=169]{beamer}
+\usepackage{kotex}
+\usepackage{verbatim}
+
+\usetheme{Copenhagen}
+\usecolortheme{beaver}
+
+% \usepackage{pgfpages}
+% \pgfpagesuselayout{6 on 1}[a4paper, border shrink=5mm]
+
+\setbeamercovered{transparent}
+\setbeamertemplate{navigation symbols}{}
+
+%\setbeamertemplate{headline}{}
+
+\usepackage[utf8]{inputenc}
+
+\title{Beamer 사용방법}
+\author{이현연}
+\date{2023.7}
+
+\begin{document}
+    \maketitle
+
+    \begin{frame}{목차}
+        \tableofcontents
+    \end{frame}
+
+    \section{Beamer 기본 코드}
+    % \Huge
+    % \huge
+    % \LARGE
+    % \Large
+    % \large
+    % \normalsize
+    % \small
+    % \footnotesize
+    % \scriptsize
+    % \tiny
+    \begin{frame}[fragile]{Beamer 기본 코드}
+        \noindent 
+        beamer는 프리젠테이션 문서를 작상하기 위해 제공되는 패키지로 아래 코드를 기본으로 사용한다.
+        \begin{columns}[T]
+            \column{0.35\textwidth}
+            {\footnotesize [ 사용법 ]}
+                \begin{scriptsize}
+                    \begin{verbatim}
+    \documentclass[12pt, aspectratio=169]{beamer}
+
+    \usepackage{kotex}
+    \usepackage[utf8]{inputenc}
+
+    \title{beamer document}
+    \author{Name}
+    \date{2023.7}
+
+    \begin{document}
+        \maketitle
+
+        \begin{frame}{목차}
+            \tableofcontents
+        \end{frame}
+
+        \begin{frame}{페이지 제목}
+            테스트 페이지!!!
+        \end{frame}
+    \end{document}
+                    \end{verbatim}    
+                \end{scriptsize}    
+            \column{0.65\textwidth}
+            {\footnotesize [ 실행결과 ]}
+                \begin{block}{Remark}
+                    some text
+                    some text
+                \end{block}
+        \end{columns}
+    \end{frame}
+%     \begin{frame}[fragile]{Beamer 기본 코드}
+%         Remark 블럭
+%         \begin{columns}[T]
+%             \column{0.35\textwidth}
+%             사용법
+%                 \begin{small}
+%                     \begin{verbatim}
+% \begin{block}{Remark}
+%     some text
+%     some text
+% \end{block}
+%                     \end{verbatim}    
+%                 \end{small}    
+%             \column{0.65\textwidth}
+%             실행화면
+%                 \begin{block}{Remark}
+%                     some text
+%                     some text
+%                 \end{block}
+%         \end{columns}
+%         \begin{example}{Example}
+%             레이텍 문서입니다.
+%         \end{example}
+%     \end{frame}
+\end{document}
+
+
+
+
+
+
+
+
+        % \begin{itemize}
+        %     \item<1-> Colbration
+        %     \item<2-> version History
+        %     \item<3-> Tracking change
+        % \end{itemize}
+    
+    %\only<2>{Click the clock button}\only<3>{Click....}
+    % \begin{frame}{Second Frame title}
+    %     \begin{block}{Remark}
+    %         some text
+    %         some text
+    %     \end{block}
+    %     \begin{example}{Example}
+    %         some text
+    %         some text
+    %     \end{example}
+    %     \begin{theorem}{Pythagoras}
+    %         $a^2+b^2=c^2$
+    %     \end{theorem}
+    %     \begin{proof}<2>
+    %         Left to the interested reader.
+    %     \end{proof}
+    % \end{frame}
+    %\section{Second Section}
+    % \begin{frame}{Two column frame}
+    %     \begin{columns}
+    %         \column{0.5\textwidth} This is going to be my first column.This is going to be my first column.This is going to be my first column.This is going to be my first column.This is going to be my first column.This is going to be my first column.This is going to be my first column.
+    %         \column{0.5\textwidth} This is going to be my second column.This is going to be my second column.This is going to be my second column.This is going to be my second column.This is going to be my second column.This is going to be my second column.This is going to be my second column.This is going to be my second column.
+    %     \end{columns}
+    % \end{frame}
